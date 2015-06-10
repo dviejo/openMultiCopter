@@ -52,7 +52,7 @@ module armMount(action)
     } else //holes
     {
         //wire hole
-        translate([0, 0, -5]) cylinder(d = wireDiameter, h = 10 +outputDepth + entryDepth);
+        translate([0, 0, -5]) cylinder(d = wireDiameter+1.5, h = 10 +outputDepth + entryDepth);
         
         //attaching holes
         for(i=[1, -1])
@@ -84,17 +84,17 @@ module femalePart() {
         {
             hull()
             {
-                oval(w=entryWidth+1, h = entryHeight+1, height=entryDepth);
+                oval(w=entryWidth+0.2, h = entryHeight+1, height=entryDepth);
                 translate([0, 0, entryDepth + outputDepth - 0.1])
-                    oval(w=outputWidth+2, h=outputHeight+1, height=0.1);
-        hull()
-        {
-            translate([0, 0, entryDepth + outputDepth - 0.1])
-                oval(w=outputWidth, h=outputHeight, height=0.1);
+                    oval(w=outputWidth+0.25, h=outputHeight+1, height=0.1);
+                hull()
+                {
+                    translate([0, 0, entryDepth + outputDepth - 0.1])
+                        oval(w=outputWidth, h=outputHeight, height=0.1);
 
-            translate([0, 0, armLength-44-20])
-                oval(w=32/2+10*10/100, h=outputHeight, height=1);
-        }
+                    translate([0, 0, armLength-44-20])
+                        oval(w=32/2+10*10/100, h=outputHeight, height=1);
+                }
             }
             
             //left
