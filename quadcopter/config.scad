@@ -19,7 +19,7 @@ monimacHolesHeight = 45;
 
 wallThick = 6;
 
-baseLength = 125;
+baseLength = 110;
 
 baseWidth = elecLength/2+15*2;
 

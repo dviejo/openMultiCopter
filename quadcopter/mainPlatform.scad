@@ -125,12 +125,13 @@ difference()
         for(i=[-1,1]) for(j=[-1,1])
             translate([i*45/2, j*45/2, -1]) cylinder(r=1.65, h=4+2);
     }
+    translate([0, 0, -1]) cylinder(d=30, h=4+2);
     
     
     
 
     //Uncomment next line to get the lower half
-    translate([-300, -300, baseHeight/2]) cube([600,600,100]);
+    //translate([-300, -300, baseHeight/2]) cube([600,600,100]);
     //Uncomment next line to get the upper half
     //translate([-300, -300, -1]) cube([600,600,baseHeight/2+1]);
 }
@@ -167,11 +168,11 @@ module unionBeam(action="add", height=baseHeight)
     }
     else if(action=="boltHead") //height>5
     {
-        translate([0, 0, -1]) cylinder(r=3, h=4+1);
+        translate([0, 0, -1]) cylinder(r=3.1, h=4.5+1);
         translate([0, 0, 4.3]) cylinder(r=1.65, h=height+2);
     }
-    else //nut at height-2.5
+    else //nut at height-3
     {
-        translate([0, 0, height-2.5]) cylinder(r=3.15, h=height+2, $fn=6);
+        translate([0, 0, height-3]) cylinder(r=3.25, h=height+2, $fn=6);
     }
 }
