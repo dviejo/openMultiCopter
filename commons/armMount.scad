@@ -84,9 +84,9 @@ module femalePart() {
         {
             hull()
             {
-                oval(w=entryWidth+0.2, h = entryHeight+1, height=entryDepth);
+                oval(w=entryWidth+0.25, h = entryHeight+0.25, height=entryDepth);
                 translate([0, 0, entryDepth + outputDepth - 0.1])
-                    oval(w=outputWidth+0.25, h=outputHeight+1, height=0.1);
+                    oval(w=outputWidth+0.25, h=outputHeight+0.25, height=0.1);
                 hull()
                 {
                     translate([0, 0, entryDepth + outputDepth - 0.1])
