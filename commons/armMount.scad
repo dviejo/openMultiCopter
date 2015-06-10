@@ -56,7 +56,11 @@ module armMount(action)
         
         //attaching holes
         for(i=[1, -1])
+        {
             translate([13*i, -30, 12.5125]) rotate([-90, 0, 0]) cylinder(d=3.55, h = 60);
+            #translate([13*i, 30, 12.5125]) rotate([90, 0, 0]) cylinder(d=6.55, h = 20);
+            translate([13*i, -29, 12.5125]) rotate([-90, 0, 0]) cylinder(d=6.5, h = 20, $fn=6);
+        }
     }
 }
 
@@ -121,5 +125,5 @@ module femalePart() {
    }
 }
 
-//malePart();
-femalePart();
+malePart();
+//femalePart();
