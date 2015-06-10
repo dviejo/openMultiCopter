@@ -4,6 +4,8 @@
 
 * Date of creation: 09/May/2015
 
+* Distributed under Apache License V2.0
+
 ## Description ##
 
 This project is for developing a working multi copter drone chassis. It is fully designed using [OpenScad](http://www.openscad.org "OpenScad"). The project arises after the great quadcopter design of Daniel Norée that you can find [here](http://www.thingiverse.com/thing:793425 "here"). This is robust and aesthetically perfect quad. But it don't fit different electronics nor copter's gears. As Daniel has its design frozen, I decided to make my own and take his as an inspiration. 
@@ -14,5 +16,5 @@ My idea is to make this project fully parameterizable: the number of arms, size 
 
 ## Current Status: Design Phase
 
-* Copter arm is almost finished
-* Copter body design will start soon
+* Copter arm is finished. (Already printed and tested)
+* Copter body design will start soon (beta test)
