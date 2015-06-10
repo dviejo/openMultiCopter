@@ -118,19 +118,28 @@ difference()
             unionBeam(action="nut", height=7);
     }
     
+    //electric conections board
+    rotate(45) 
+    {   
+        translate([-50/2, -50/2, 1])  cube([50,50,6]);
+        for(i=[-1,1]) for(j=[-1,1])
+            translate([i*45/2, j*45/2, -1]) cylinder(r=1.65, h=4+2);
+    }
+    
+    
     
 
     //Uncomment next line to get the lower half
-    //translate([-300, -300, baseHeight/2]) cube([600,600,100]);
+    translate([-300, -300, baseHeight/2]) cube([600,600,100]);
     //Uncomment next line to get the upper half
     //translate([-300, -300, -1]) cube([600,600,baseHeight/2+1]);
 }
 
 
-translate([0, 10, 0])
+*translate([0, 10, 0])
 for(i=[45, -45])
     rotate(i) translate([0,baseWidth+armRectification,baseHeight/2]) import("../stl/copterArm.stl");
-translate([0, -10, 0])
+*translate([0, -10, 0])
 for(i=[135, -135])
     rotate(i) translate([0,baseWidth+armRectification,baseHeight/2]) import("../stl/copterArm.stl");
 
@@ -140,7 +149,7 @@ module mainElectronics(action = "add")
     {
         for(j=[-1,1])
         {
-            translate([i*monimacHolesHeight/2, j*monimacHolesWidth/2,0]) unionBeam(action=action, height=5);
+            translate([i*monimacHolesHeight/2, j*monimacHolesWidth/2,0]) unionBeam(action=action, height=6);
         }
     }
     *color("grey") translate([-monimacLength/2, -monimacWidth/2, 6]) cube([monimacLength, monimacWidth, 3]);
