@@ -57,7 +57,7 @@ module armMount(action)
         //attaching holes
         for(i=[1, -1])
         {
-            translate([13*i, -30, 12.5125]) rotate([-90, 0, 0]) cylinder(d=3.55, h = 60);
+            translate([13*i, -8.7, 12.5125]) rotate([-90, 0, 0]) cylinder(d=3.55, h = 18.4);
             translate([13*i, 30, 12.5125]) rotate([90, 0, 0]) cylinder(d=6.55, h = 20);
             translate([13*i, -29, 12.5125]) rotate([-90, 0, 0]) cylinder(d=6.5, h = 20, $fn=6);
         }
@@ -88,9 +88,9 @@ module femalePart() {
         {
             hull()
             {
-                oval(w=entryWidth+0.25, h = entryHeight+0.25, height=entryDepth);
+                oval(w=entryWidth+0.1, h = entryHeight+0.1, height=entryDepth);
                 translate([0, 0, entryDepth + outputDepth - 0.1])
-                    oval(w=outputWidth+0.25, h=outputHeight+0.25, height=0.1);
+                    oval(w=outputWidth+0.1, h=outputHeight+0.1, height=0.1);
                 hull()
                 {
                     translate([0, 0, entryDepth + outputDepth - 0.1])
@@ -113,8 +113,8 @@ module femalePart() {
                 translate([-10-20, -10, -0.1]) cube([20, 20, 0.1]);
                 translate([-30.1-10, -10, 30]) cube([0.1, 20, 0.1]);
             }
-            translate([-15, 14.5/2+0.5, -1]) cube([30, 5, 20+1]);
-            translate([-15, -14.5/2-5+0.2, -1]) cube([30, 5, 20+1]);
+            translate([-15, 14.5/2+0.35, -1]) cube([30, 5, 20+1]);
+            translate([-15, -14.5/2-5+0.3, -1]) cube([30, 5, 20+1]);
             for(i=[1, -1])
             {
                 translate([13*i, 14.6/2-sqrt(2.5*2.5+2.5*2.5)+0.8525, -1]) rotate(45) cube([4.5, 4.5, 20+1]);
@@ -126,4 +126,4 @@ module femalePart() {
 }
 
 malePart();
-//femalePart();
+translate([50, 0, 0]) femalePart();
