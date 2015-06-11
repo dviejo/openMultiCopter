@@ -18,9 +18,9 @@ height = 26;
 platformHeight = 7;
 platformWidth = 3.75;
 
-axleDiam = 3.75;
+axleDiam = 4;
 bottomClearanceDiam = 8;
-bottomClearanceHeight = 2;
+bottomClearanceHeight = 2.5;
 
 //wire openning
 wireDiameter = 8;
