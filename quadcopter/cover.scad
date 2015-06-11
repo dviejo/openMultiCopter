@@ -14,43 +14,70 @@ module ellipsoid(w,h, center = false) {
  scale([1, h/w, 0.8]) sphere(r=w, $fn=60);
 }
 
-union()
+difference()
 {
-    difference()
-    {
-        intersection()
-        {
-            ellipsoid(w = baseWidth, h=baseLength);
-            translate([-200, -200, 0]) cube([400, 400, baseWidth*0.7]);
-        }
-    
-        intersection()
-        {
-            ellipsoid(w = baseWidth-1, h=baseLength-1);
-            translate([-200, -200, -1]) cube([400, 400, 1+(baseWidth-1)*0.7]);
-        }
-    }
-    
-    intersection()
+    union()
     {
         difference()
         {
-            translate([-107/2, -90/2, 0]) cube([107, 90, baseWidth*0.7]);
-            translate([-97/2, -80/2, -1]) cube([97, 80, 2+baseWidth*0.7]);
-            
-            for(i=[1,-1]) 
+            intersection()
             {
-                for (j=[1,-1])
-                {
-                    translate([i*107/2, j*90/2, -1]) cylinder(r1=7, r2=0, h=10);
-                }
-                translate([i*40/2, -1-90/2, 5]) rotate([-90, 0, 0]) cylinder(r=1.65, h=2+90);
-                translate([i*40/2, -1-90/2, 11]) rotate([-90, 0, 0]) cylinder(r=1.65, h=2+90);
+                ellipsoid(w = baseWidth, h=baseLength);
+                translate([-200, -200, 0]) cube([400, 400, baseWidth*0.7]);
             }
-            
+    
+            intersection()
+            {
+                ellipsoid(w = baseWidth-1, h=baseLength-1);
+                translate([-200, -200, -1]) cube([400, 400, 1+(baseWidth-1)*0.7]);
+            }
+        
         }
-        ellipsoid(w = baseWidth, h=baseLength);
+    
+        intersection()
+        {
+            difference()
+            {
+                translate([-107/2, -90/2, 0]) cube([107, 90, baseWidth*0.7]);
+                translate([-97/2, -80/2, -1]) cube([97, 80, 2+baseWidth*0.7]);
+            
+                for(i=[1,-1]) 
+                {
+                    for (j=[1,-1])
+                    {
+                        translate([i*107/2, j*90/2, -1]) cylinder(r1=7, r2=0, h=10);
+                    }
+                    translate([i*40/2, -1-90/2, 5]) rotate([-90, 0, 0]) cylinder(r=1.65, h=2+90);
+                    translate([i*40/2, -1-90/2, 11]) rotate([-90, 0, 0]) cylinder(r=1.65, h=2+90);
+                }
+            
+            }
+            ellipsoid(w = baseWidth, h=baseLength);
+        }
+        
+        //GPS support
+        translate([0, -baseLength/4, baseWidth*0.7]) cylinder(d=8, h=2);
+        for(i=[0, 90]) 
+            translate([0, -baseLength/4, baseWidth*0.7]) rotate(i)
+            hull()
+            {
+                translate([0-4/2, -4/2, 0]) cube([4,4,2]);
+                translate([-15-4/2, -4/2, 0]) cube([4,4,1]);
+                translate([15-4/2, -4/2, 0]) cube([4,4,1]);
+            }
+    
     }
+    
+    //holes for GPS
+    translate([0, -baseLength/4, (baseWidth-1)*0.7 +0.3]) cylinder(d=4.25, h=5);
+    for(i=[45, 135, 225, 315])
+        translate([0, -baseLength/4, (baseWidth-1)*0.7  +0.3])
+            rotate(i)
+                translate([10, 0, 0]) hull()
+                {
+                    translate([0, 2.5, 0]) cylinder(r=1.65, h=5);
+                    translate([0, -2.5, 0]) cylinder(r=1.65, h=5);
+                }
     
 }
 
