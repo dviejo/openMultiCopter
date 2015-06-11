@@ -14,6 +14,7 @@ use<armMount.scad>
 
 //laze();
 
+//mirror([1,0,0]) //uncomment this line to get Counter Clock Wise arm !!
 copterArm(part=0);
 
 
