@@ -17,7 +17,8 @@ My idea is to make this project fully parameterizable: the number of arms, size 
 ## Current Status: Design Phase
 
 * Copter arm is finished. (Already printed and tested)
-* Copter body design will start soon (beta test)
+* Quadcopter body design is finished (beta test)
+* Quadcopter body cover is being designed
 
 ## Pictures
 
