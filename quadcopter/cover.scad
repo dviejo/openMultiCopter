@@ -61,22 +61,22 @@ difference()
             translate([0, -baseLength/4, baseWidth*0.7]) rotate(i)
             hull()
             {
-                translate([0-4/2, -4/2, 0]) cube([4,4,2]);
-                translate([-15-4/2, -4/2, 0]) cube([4,4,1]);
-                translate([15-4/2, -4/2, 0]) cube([4,4,1]);
+                translate([0-4/2, -4/2, 0]) cube([4,4,2.0]);
+                translate([-15-4/2, -4/2, -1]) cube([4,4,1]);
+                translate([15-4/2, -4/2, -1]) cube([4,4,1]);
             }
     
     }
     
     //holes for GPS
-    translate([0, -baseLength/4, (baseWidth-1)*0.7 +0.3]) cylinder(d=4.25, h=5);
+    translate([0, -baseLength/4, (baseWidth-1)*0.7 +0.3]) cylinder(d=3.25, h=5);
     for(i=[45, 135, 225, 315])
         translate([0, -baseLength/4, (baseWidth-1)*0.7  +0.3])
             rotate(i)
                 translate([10, 0, 0]) hull()
                 {
-                    translate([0, 2.5, 0]) cylinder(r=1.65, h=5);
-                    translate([0, -2.5, 0]) cylinder(r=1.65, h=5);
+                    translate([3.25, 0, 0]) cylinder(r=2.15, h=5);
+                    translate([-3.25, 0, 0]) cylinder(r=2.15, h=5);
                 }
     
 }
