@@ -14,7 +14,7 @@ use<armMount.scad>
 
 //laze();
 
-copterArm(part=1);
+copterArm(part=0);
 
 
 ESCStart = 32; //distance from the beginning of the arm
@@ -116,6 +116,8 @@ union()
     rotate([-90,0,0]) 
     {
         translate([-ESCWidth/2, -ESCHeight/2, ESCStart]) cube([ESCWidth, ESCHeight, ESCLength]);
+        //extra width for TMotor AIR 20A ESC 
+        translate([(ESCWidth-2)/2, 1, ESCStart+12.25/2]) rotate([0, -90, 0]) cylinder(d=12.25, h=ESCWidth-2);
         //cooling windows as sugested by Sicherlich Nicht
             translate([3, -15, ESCStart+ESCLength*0.8]) rotate([-20,0,0]) cube([7, 15, 7]);
             translate([3, -15, ESCStart+ESCLength*0.5]) rotate([-20,0,0]) cube([7, 15, 7]);
@@ -129,9 +131,12 @@ union()
     for(i=[-1,1]) translate([0, 0, outputHeight*0.7*i])
     rotate([-90,0,0]) 
     {
-        translate([0, 0, outputDepth]) rotate([0, 90, 0]) translate([0,0,-15/2]) cylinder(d=1.95, h=15);
-        translate([0, 0, length-59]) rotate([0, 90, 0]) translate([0,0,-15/2]) cylinder(d=1.95, h=15);
-        translate([0, 0, length-40]) rotate([0, 90, 0]) translate([0,0,-15/2]) cylinder(d=1.95, h=15);
+        translate([0, 0, outputDepth]) rotate([0, 90, 0]) translate([0,0,-15/2])
+            cylinder(d=2.05, h=15, $fn=20);
+        translate([0, 0, length-59]) rotate([0, 90, 0]) translate([0,0,-15/2]) 
+            cylinder(d=2.05, h=15, $fn=20);
+        translate([0, 0, length-40]) rotate([0, 90, 0]) translate([0,0,-15/2]) 
+            cylinder(d=2.05, h=15, $fn=20);
     }
     
     //bolt for the landing gear union
