@@ -14,7 +14,7 @@ I'm trying to keep copter arms fully compatible with those from Daniel's design.
 
 My idea is to make this project fully parameterizable: the number of arms, size for the body, battery compartment and so on. 
 
-## Current Status: Design Phase
+## Current Status: Design and Test Phase
 
 * Copter arm is finished. (Already printed and tested)
 * Quadcopter body design is finished (beta test)
