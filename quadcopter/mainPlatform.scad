@@ -121,7 +121,7 @@ difference()
     //electric conections board
     rotate(45) 
     {   
-        translate([-50/2, -50/2, 1])  cube([50,50,6]);
+        translate([-50.5/2, -50.5/2, 1])  cube([50.5,50.5,6]);
         for(i=[-1,1]) for(j=[-1,1])
             translate([i*45/2, j*45/2, -1]) cylinder(r=1.65, h=4+2);
     }
