@@ -1,4 +1,4 @@
-### Multi Compter Project ###
+### Multi Copter Project ###
 
 * Created by Diego Viejo
 
@@ -18,3 +18,7 @@ My idea is to make this project fully parameterizable: the number of arms, size 
 
 * Copter arm is finished. (Already printed and tested)
 * Copter body design will start soon (beta test)
+
+## Pictures
+
+![copter arm mounted](Images/copterArm(Beta).jpg "copter arm")
