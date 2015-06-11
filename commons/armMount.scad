@@ -15,7 +15,7 @@ include<config.scad>
 // $fa= 1 ; 
 // 
 
-module armMount(action)
+module armMount(action, extraHole=0)
 {
     if(action == "add")
     {
@@ -52,7 +52,7 @@ module armMount(action)
     } else //holes
     {
         //wire hole
-        translate([0, 0, -5]) cylinder(d = wireDiameter+1.5, h = 10 +outputDepth + entryDepth);
+        translate([0, 0, -5]) cylinder(d = wireDiameter+extraHole, h = 10 +outputDepth + entryDepth);
         
         //attaching holes
         for(i=[1, -1])
@@ -121,7 +121,7 @@ module femalePart() {
                 translate([13*i, -14.6/2-sqrt(2.5*2.5+2.5*2.5)-0.2, -1]) rotate(45) cube([4.5, 4.5, 20+1]);
             }
         }
-        translate([0, 0, 0.15]) armMount(action="holes");
+        translate([0, 0, 0.15]) armMount(action="holes", extraHole=1.5);
    }
 }
 
