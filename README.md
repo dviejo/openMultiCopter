@@ -14,6 +14,8 @@ I'm trying to keep copter arms fully compatible with those from Daniel's design.
 
 My idea is to make this project fully parameterizable: the number of arms, size for the body, battery compartment and so on. 
 
+For some parts of this project I'm using the nice writing routines from Harlan Martin. The complete package can be downloaded from [his repository on github](https://github.com/rohieb/Write.scad "writescad").
+
 ## Current Status: Design and Test Phase
 
 * Copter arm is finished. (Already printed and tested)
