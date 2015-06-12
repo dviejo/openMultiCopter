@@ -12,6 +12,7 @@ telemetry();
 module pixhawk()
 
 {
+    translate([-82/2, -44/2, 0])
     union()
     {
         difference()

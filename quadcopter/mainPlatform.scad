@@ -11,6 +11,7 @@ include<../commons/config.scad>
 
 use<../commons/armMount.scad>
 use<../commons/copterArm.scad>
+use<../Electronics/pixhawk.scad>
 
 
 //This value pulls copter arms to the center of the platform
@@ -23,7 +24,7 @@ difference()
     {
         difference()
         {
-            oval(w=baseWidth, h=baseLength, height=baseHeight);
+            oval(w=baseWidth, h=baseLength, height=baseHeight, $fn=70);
             difference()
             {
                 translate([0, 0, 4]) oval(w=baseWidth-wallThick, h=baseLength-wallThick, height=baseHeight+4*2);
@@ -138,6 +139,8 @@ difference()
 }
 
 
+translate([0, 0, 24]) rotate(90) pixhawk();
+
 *translate([0, 10, 0])
 for(i=[45, -45])
     rotate(i) translate([0,baseWidth+armRectification,baseHeight/2]) import("../stl/copterArm.stl");
@@ -151,7 +154,8 @@ module mainElectronics(action = "add")
     {
         for(j=[-1,1])
         {
-            translate([i*monimacHolesHeight/2, j*monimacHolesWidth/2,0]) unionBeam(action=action, height=6);
+            translate([i*monimacHolesHeight/2, j*monimacHolesWidth/2,0]) 
+                unionBeam(action=action, height=6+6);
         }
     }
     *color("grey") translate([-monimacLength/2, -monimacWidth/2, 6]) cube([monimacLength, monimacWidth, 3]);
