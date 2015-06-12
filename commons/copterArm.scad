@@ -14,8 +14,8 @@ use<armMount.scad>
 
 //laze();
 
-//mirror([1,0,0]) //uncomment this line to get Counter Clock Wise arm !!
-copterArm(part=0);
+mirror([1,0,0]) //uncomment this line to get Counter Clock Wise arm !!
+copterArm(part=2);
 
 
 ESCStart = 32; //distance from the beginning of the arm
@@ -118,7 +118,7 @@ union()
     {
         translate([-ESCWidth/2, -ESCHeight/2, ESCStart]) cube([ESCWidth, ESCHeight, ESCLength]);
         //extra width for TMotor AIR 20A ESC 
-        translate([(ESCWidth-2)/2, 1, ESCStart+12.25/2]) rotate([0, -90, 0]) cylinder(d=12.25, h=ESCWidth-2);
+        translate([(ESCWidth-2)/2, 0, ESCStart+12.5]) rotate([0, -90, 0]) cylinder(d=13.25, h=ESCWidth-2);
         //cooling windows as sugested by Sicherlich Nicht
             translate([3, -15, ESCStart+ESCLength*0.8]) rotate([-20,0,0]) cube([7, 15, 7]);
             translate([3, -15, ESCStart+ESCLength*0.5]) rotate([-20,0,0]) cube([7, 15, 7]);
