@@ -82,7 +82,8 @@ difference()
             hollowify() difference()
             {
                 oval(w=baseWidth-wallThick, h=baseLength-wallThick, height=4);
-                translate([-97/2, -80/2, -1]) cube([97, 80, 6]);            }
+                translate([-openningLength/2, -openningWidth/2, -1]) cube([openningLength, openningWidth, 6]);
+            }
     }
 
     

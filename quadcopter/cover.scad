@@ -38,8 +38,10 @@ difference()
         {
             difference()
             {
-                translate([-107/2, -90/2, 0]) cube([107, 90, baseWidth*0.7]);
-                translate([-97/2, -80/2, -1]) cube([97, 80, 2+baseWidth*0.7]);
+                translate([-(openningLength+10)/2, -(openningWidth+10)/2, 0]) 
+                    cube([openningLength+10, openningWidth+10, baseWidth*0.7]);
+                translate([-openningLength/2, -openningWidth/2, -1]) 
+                    cube([openningLength, openningWidth, 2+baseWidth*0.7]);
             
                 for(i=[1,-1]) 
                 {
@@ -58,12 +60,12 @@ difference()
         //GPS support
         translate([0, -baseLength/4, baseWidth*0.7]) cylinder(d=8, h=2);
         for(i=[0, 90]) 
-            translate([0, -baseLength/4, baseWidth*0.7]) rotate(i)
+            translate([0, -baseLength/4, (baseWidth-1)*0.7]) rotate(i)
             hull()
             {
-                translate([0-4/2, -4/2, 0]) cube([4,4,2.0]);
-                translate([-15-4/2, -4/2, -1]) cube([4,4,1]);
-                translate([15-4/2, -4/2, -1]) cube([4,4,1]);
+                translate([0-4/2, -4/2, 0]) cube([4,4,2.5]);
+                translate([-15-4/2, -4/2, 0]) cube([4,4,1]);
+                translate([15-4/2, -4/2, 0]) cube([4,4,1]);
             }
     
     }

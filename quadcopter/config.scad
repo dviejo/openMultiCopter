@@ -25,3 +25,7 @@ baseWidth = elecLength/2+15*2;
 
 baseHeight = 25;
 
+//electronic's openning. Shared by mainPlatform and cover
+openningLength = 97;
+openningWidth = 82;
+
