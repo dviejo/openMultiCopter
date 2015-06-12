@@ -47,10 +47,10 @@ difference()
                 {
                     for (j=[1,-1])
                     {
-                        translate([i*107/2, j*90/2, -1]) cylinder(r1=7, r2=0, h=10);
+                        translate([i*(openningLength+10)/2, j*90/2, -1]) cylinder(r1=7, r2=0, h=10);
                     }
-                    translate([i*40/2, -1-90/2, 5]) rotate([-90, 0, 0]) cylinder(r=1.65, h=2+90);
-                    translate([i*40/2, -1-90/2, 11]) rotate([-90, 0, 0]) cylinder(r=1.65, h=2+90);
+                    translate([-1-(openningLength+10)/2, i*40/2, 5]) rotate([0, 90, 0]) cylinder(r=1.35, h=2+openningLength+10);
+                    translate([-1-(openningLength+10)/2, i*40/2, 11]) rotate([0, 90, 0]) cylinder(r=1.35, h=2+openningLength+10);
                 }
             
             }
@@ -102,10 +102,10 @@ module grip()
                 translate([gripLength/2-5, -8/2, 0.75]) rotate([0, 30, 0]) cube([13, 8, 4]);
             }
         }
-        translate([gripLength/2-3-4-5, 0, 1.8]) cylinder(r=1.7, h=5, $fn=12);
-        translate([gripLength/2-3-4-11, 0, 1.8]) cylinder(r=1.7, h=5, $fn=12);
-        translate([gripLength/2-3-4-5, 0, -1]) rotate(30) cylinder(r=3, h=1.5, $fn=6);
-        translate([gripLength/2-3-4-11, 0, -1]) rotate(30) cylinder(r=3, h=1.5, $fn=6);
+        translate([gripLength/2-3-4-5, 0, -1]) cylinder(r=1.7, h=5, $fn=12);
+        translate([gripLength/2-3-4-11, 0, -1]) cylinder(r=1.7, h=5, $fn=12);
+//        translate([gripLength/2-3-4-5, 0, -1]) rotate(30) cylinder(r=3, h=1.5, $fn=6);
+//        translate([gripLength/2-3-4-11, 0, -1]) rotate(30) cylinder(r=3, h=1.5, $fn=6);
         
         translate([gripLength/2-2.8-5, -10/2, 2.5-1]) cube([5, 10, 1+1]);
     }
