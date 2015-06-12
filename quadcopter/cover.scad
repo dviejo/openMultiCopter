@@ -124,3 +124,4 @@ for(i=[45, -45])
 *translate([0, -10, 0])
 for(i=[135, -135])
     rotate(i) translate([0,baseWidth+armRectification,-baseHeight/2]) import("../stl/copterArm.stl");
+
