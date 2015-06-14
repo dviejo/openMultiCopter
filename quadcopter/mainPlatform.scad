@@ -15,7 +15,7 @@ use<../Electronics/pixhawk.scad>
 
 
 //This value pulls copter arms to the center of the platform
-armRectification = -17;
+armRectification = -14.5;
 
 
 difference()
@@ -46,7 +46,8 @@ difference()
         {
             intersection()
             {
-                translate([0, 10, 0]) rotate(i) translate([0,baseWidth+armRectification,0])
+//                translate([0, 10, 0]) 
+                rotate(i) translate([0,baseWidth+armRectification,0])
                 {
                     difference()
                     {
@@ -63,7 +64,8 @@ difference()
         {
             intersection()
             {
-                translate([0, -10, 0]) rotate(i) translate([0,baseWidth+armRectification,0])
+//                translate([0, -10, 0]) 
+                rotate(i) translate([0,baseWidth+armRectification,0])
                 {
                     difference()
                     {
@@ -88,11 +90,11 @@ difference()
     }
 
     
-    translate([0, 10, 0])
+//    translate([0, 10, 0])
     for(i=[45, -45])
         rotate(i) translate([0,baseWidth+armRectification,baseHeight/2])
             femalePart();
-    translate([0, -10, 0])
+//    translate([0, -10, 0])
     for(i=[135, -135])
         rotate(i) translate([0,baseWidth+armRectification,baseHeight/2])
             femalePart();
@@ -139,7 +141,7 @@ difference()
 }
 
 
-translate([0, 0, 24]) rotate(90) pixhawk();
+*translate([0, 0, 24]) rotate(90) pixhawk();
 
 *translate([0, 10, 0])
 for(i=[45, -45])
@@ -148,7 +150,7 @@ for(i=[45, -45])
 for(i=[135, -135])
     rotate(i) translate([0,baseWidth+armRectification,baseHeight/2]) import("../stl/copterArm.stl");
 
-translate([0, 0, baseHeight]) import("../stl/cover.stl");
+*translate([0, 0, baseHeight]) import("../stl/cover.stl");
 
 
 module mainElectronics(action = "add")
@@ -158,10 +160,10 @@ module mainElectronics(action = "add")
         for(j=[-1,1])
         {
             translate([i*monimacHolesHeight/2, j*monimacHolesWidth/2,0]) 
-                unionBeam(action=action, height=6+6);
+                unionBeam(action=action, height=12);
         }
     }
-    *color("grey") translate([-monimacLength/2, -monimacWidth/2, 6]) cube([monimacLength, monimacWidth, 3]);
+*    color("grey") translate([-57/2, -84/2, 12]) cube([57, 84, 3]);
 }
 
 module unionBeam(action="add", height=baseHeight)
@@ -177,7 +179,7 @@ module unionBeam(action="add", height=baseHeight)
     else if(action=="boltHead") //height>5
     {
         translate([0, 0, -1]) cylinder(r=3.1, h=4.5+1);
-        translate([0, 0, 4.3]) cylinder(r=1.65, h=height+2);
+        translate([0, 0, 4.8]) cylinder(r=1.65, h=height-4.8-3.3);
     }
     else //nut at height-3
     {

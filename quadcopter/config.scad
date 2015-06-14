@@ -19,13 +19,13 @@ monimacHolesHeight = 45;
 
 wallThick = 6;
 
-baseLength = 110;
+baseLength = 108;
 
-baseWidth = elecLength/2+15*2;
+baseWidth = elecLength/2+18*2;
 
 baseHeight = 25;
 
 //electronic's openning. Shared by mainPlatform and cover
-openningLength = 97;
-openningWidth = 82;
+openningLength = 78;
+openningWidth = 87;
 
