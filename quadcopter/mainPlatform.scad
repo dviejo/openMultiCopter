@@ -109,11 +109,11 @@ difference()
     }
     mainElectronics(action="remove");
     
-    //base holes for connecting the battery
+    //base holes for comunicating with the battery container
     for(i=[1, -1])
         translate([0, i*baseLength*0.75, -1]) cylinder(d=20, h=4+2);
     
-    //battery container attaching holes
+    //battery container's attaching holes
     for(i=[1,-1]) for(j=[1,-1])
     {
         translate([i*(baseWidth*0.535), j*baseLength*0.7, 0]) 
@@ -128,8 +128,8 @@ difference()
         translate([-50.5/2, -50.5/2, 1])  cube([50.5,50.5,6]);
         for(i=[-1,1]) for(j=[-1,1])
             translate([i*45/2, j*45/2, -1]) cylinder(r=1.65, h=4+2);
+        translate([-37/2, -37/2, -1]) cube([37,37, 5]);
     }
-    translate([0, 0, -1]) cylinder(d=30, h=4+2);
     
     
     
@@ -137,7 +137,7 @@ difference()
     //Uncomment next line to get the lower half
     //translate([-300, -300, baseHeight/2]) cube([600,600,100]);
     //Uncomment next line to get the upper half
-    translate([-300, -300, -1]) cube([600,600,baseHeight/2+1]);
+    //translate([-300, -300, -1]) cube([600,600,baseHeight/2+1]);
 }
 
 
