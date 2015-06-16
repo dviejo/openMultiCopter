@@ -70,7 +70,7 @@ difference()
                 translate([15-4/2, -4/2, 0]) cube([4,4,1]);
             }
             
-        //Text
+        //Text - TODO: automatic centering
         text1="Open Multi Copter";
         text2="Quad Prototype";
         translate([30, 0, baseWidth*0.7-0.2]) rotate(180)
@@ -134,18 +134,4 @@ module grip()
         translate([gripLength/2-2.8-5, -10/2, 2.5-1]) cube([5, 10, 1+1]);
     }
 }
-
-armRectification = -17;
-*translate([0, 0, -baseHeight])
-{
-//    import("../output/mainPlatformPart1.stl");
-    import("../output/mainPlatformPart2.stl");
-}
-
-*translate([0, 10, 0])
-for(i=[45, -45])
-    rotate(i) translate([0,baseWidth+armRectification,-baseHeight/2]) import("../stl/copterArm.stl");
-*translate([0, -10, 0])
-for(i=[135, -135])
-    rotate(i) translate([0,baseWidth+armRectification,-baseHeight/2]) import("../stl/copterArm.stl");
 
