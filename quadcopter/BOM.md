@@ -26,3 +26,7 @@
  
  - [Turnigy 9X 9Ch Transmitter](https://www.hobbyking.com/hobbyking/store/__8992__Turnigy_9X_9Ch_Transmitter_w_Module_8ch_Receiver_Mode_2_v2_Firmware_.html "Turnigy 9X 9Ch Transmitter") (~66€)
  
+6. Anti Vibration Mount
+
+ - You can print it out from [Thingiverse](http://www.thingiverse.com/thing:160655 "Thingiverse") and just buy [silicone dampers](https://rc-innovations.es/silicone-dampers.-4-units-siliconeballblue-rci-innovations-en "Silicone dampers").
+ 
