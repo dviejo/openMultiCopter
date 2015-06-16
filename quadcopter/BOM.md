@@ -8,7 +8,7 @@
 
  - [T-Motor AIR GEAR 350 Set](https://rc-innovations.es/Motores-multirrotores-aeromodelismo-brushless/TMotor-motores-para-multicopteros-drones-RC-Innovations-distribuidor-oficial/T-motor-pack-motores-drones/motores-T-motor-air-gear-350-pack-esc-20A-helices-phantom-F450 "T-Motor AIR GEAR 350 Set") 120€. This set includes 4 920kv motors, 4 20A ESCs and 4 (2CW + 2CCW) propellers
  
- - Alternatively, you can purchase [Multistar 350QX Blade Motor set](http://www.hobbyking.com/hobbyking/store/__54277__Multistar_350QX_Blade_Motor_set_4pcs_Box_2209_1200KV.html "Multistar 350QX Blade Motor set") (~59€) or [Multistar Elite - 2216-920 Box set](http://www.hobbyking.com/hobbyking/store/uh_viewItem.asp?idProduct=74770 "Multistar Elite - 2216-920 Box set") (~80€) and matched propellers. In this case you need also to purchase 4 ESCs like [HobbyKing 20A BlueSeries Brushless Speed Controller](https://www.hobbyking.com/hobbyking/store/uh_viewItem.asp?idProduct=39253 "HobbyKing 20A BlueSeries Brushless Speed Controller") (~10€ each)
+ - Alternatively, you can purchase [Multistar 350QX Blade Motor set](http://www.hobbyking.com/hobbyking/store/__54277__Multistar_350QX_Blade_Motor_set_4pcs_Box_2209_1200KV.html "Multistar 350QX Blade Motor set") (~59€) or [Multistar Elite - 2216-920 Box set](http://www.hobbyking.com/hobbyking/store/uh_viewItem.asp?idProduct=74770 "Multistar Elite - 2216-920 Box set") (~80€) and matched propellers. In these cases you will need also to purchase 4 ESCs like [HobbyKing 20A BlueSeries Brushless Speed Controller](https://www.hobbyking.com/hobbyking/store/uh_viewItem.asp?idProduct=39253 "HobbyKing 20A BlueSeries Brushless Speed Controller") (~10€ each)
  
 2. Battery
 
@@ -19,3 +19,10 @@
 4. Electronics
 
  - [Pixhawk](https://rc-innovations.es/Multicopteros-drones-multirrotores-RPAs/multicopteros-Pixhawk/controladora-autopiloto-Pixhawk-avion-multicoptero-uav-RPAs-GPS-osd-telemetria-amperimetro "Pixhawk")
+ 
+5. Radio transmitter. All you need is a (at least) 6 channel radio.
+
+ - [FlySky FS-TH9X 8ch 2.4Ghz](https://rc-innovations.es/rc-transmiters/FlySky-rc-2.4Ghz/flysky-2.4g-9ch-radio-model-transmitterreceiver-fs-th9x-flysky "FlySky FS-TH9X 8ch 2.4Ghz") (~100€)
+ 
+ - [Turnigy 9X 9Ch Transmitter](https://www.hobbyking.com/hobbyking/store/__8992__Turnigy_9X_9Ch_Transmitter_w_Module_8ch_Receiver_Mode_2_v2_Firmware_.html "Turnigy 9X 9Ch Transmitter") (~66€)
+ 
