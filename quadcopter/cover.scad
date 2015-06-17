@@ -41,10 +41,31 @@ difference()
         {
             difference()
             {
-                translate([-(openningLength+6)/2, -(openningWidth+6)/2, 0]) 
-                    cube([openningLength+6, openningWidth+6, baseWidth*perc]);
+                union()
+                {
+                    translate([-(openningLength+6)/2, -(openningWidth+6)/2, 0]) 
+                        cube([openningLength+6, openningWidth+6, baseWidth*perc]);
+                    translate([-baseWidth-5, -1, 0])
+                        cube([baseWidth*2+10, 2, 10]);
+                }
                 translate([-openningLength/2, -openningWidth/2, -1]) 
                     cube([openningLength, openningWidth, 2+baseWidth*perc]);
+
+                hull()
+                {
+                    translate([-(openningLength+6)/2-10/2, -2, 0]) rotate([-90, 0, 0])
+                        cylinder(d=10, h=4);
+                    translate([-(baseWidth-1.75)+10/2+0.5, -2, 0]) rotate([-90, 0, 0])
+                        cylinder(d=10, h=4);
+                }
+                mirror([1,0,0])
+                hull()
+                {
+                    translate([-(openningLength+6)/2-10/2, -2, 0]) rotate([-90, 0, 0])
+                        cylinder(d=10, h=4);
+                    translate([-(baseWidth-1.75)+10/2+0.5, -2, 0]) rotate([-90, 0, 0])
+                        cylinder(d=10, h=4);
+                }
 
                 //from Obijuan's cabinets 
                 for(j=[1:3]) for(i=[-2:2-((j+1)%2)])
@@ -62,16 +83,18 @@ difference()
         }
         
         //GPS support
-        translate([0, -baseLength/4, baseWidth*perc]) cylinder(d=8, h=2);
-        for(i=[0, 90]) 
-            translate([0, -baseLength/4, (baseWidth-1.75)*perc]) rotate(i)
+        translate([0, -baseLength/2+10, 0])
+        {
+            translate([0, 0, baseWidth*perc]) cylinder(d=8, h=2);
+            for(i=[0, 90]) translate([0, 0, (baseWidth-1.75)*perc]) rotate(i)
             hull()
             {
                 translate([0-4/2, -4/2, 0]) cube([4,4,2.5]);
                 translate([-15-4/2, -4/2, 0]) cube([4,4,1]);
                 translate([15-4/2, -4/2, 0]) cube([4,4,1]);
             }
-            
+        }
+        
         //Text - TODO: automatic centering
         text1="Open Multi Copter";
         text2="Quad Prototype";
@@ -95,22 +118,33 @@ difference()
             
     
     //holes for GPS
-    translate([0, -baseLength/4, (baseWidth-1.75)*perc +0.3]) cylinder(d=3.25, h=5);
-    for(i=[45, 135, 225, 315])
-        translate([0, -baseLength/4, (baseWidth-1.75)*perc  +0.3])
-            rotate(i)
-                translate([10, 0, 0]) hull()
-                {
-                    translate([3.25, 0, 0]) cylinder(r=2.15, h=5);
-                    translate([-3.25, 0, 0]) cylinder(r=2.15, h=5);
-                }
+    translate([0, -baseLength/2+10, 0])
+    {
+        translate([0, 0, (baseWidth-1.75)*perc +0.3]) cylinder(d=3.25, h=5);
+        for(i=[45, 135, 225, 315])
+            translate([0, 0, (baseWidth-1.75)*perc  +0.3])
+                rotate(i)
+                    translate([10, 0, 0]) hull()
+                    {
+                        translate([3.25, 0, 0]) cylinder(r=2.15, h=5);
+                        translate([-3.25, 0, 0]) cylinder(r=2.15, h=5);
+                    }
+    }
     //Antenna openning
-    translate([28, -baseLength+15, 0]) scale([0.699, 1, 1]) rotate([90, 0, 0]) cylinder(d=14, h=20);
+    hull()
+    {
+        #translate([20, -baseLength+15, 5]) rotate([90, 0, 0]) cylinder(d=11.5, h=20);
+        translate([20, -baseLength+15, -3]) rotate([90, 0, 0]) cylinder(d=11.5, h=20);
+    }
 }
 
-for(i=[-1, 1]) for(j=[-1,1])
+*for(i=[-1, 1]) for(j=[-1,1])
     translate([i*(baseWidth+10), j*20, 0]) rotate(90)
 grip();
+
+
+*translate([0, 0, -baseHeight])
+import("../output/mainPlatformPart2.stl");
 
 gripLength = 14 + 5 + 3;
 module grip()
