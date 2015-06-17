@@ -31,6 +31,11 @@ module oval(w,h, height, center = false) {
  scale([1, h/w, 1]) cylinder(h=height, r=w, center=center);
 }
 
+//auxiliary method
+module ellipsoid(w,h, center = false) {
+ scale([1, h/w, 0.8]) sphere(r=w, $fn=60);
+}
+
 
 //auxiliary method
 module nestedHull()
