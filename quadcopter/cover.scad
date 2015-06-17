@@ -11,10 +11,6 @@ include<../commons/config.scad>
 include<../extras/Write.scad>
 
 
-module ellipsoid(w,h, center = false) {
- scale([1, h/w, 0.8]) sphere(r=w, $fn=60);
-}
-
 perc = 0.55;
 
 difference()
@@ -133,12 +129,12 @@ difference()
     //Antenna openning
     hull()
     {
-        #translate([20, -baseLength+15, 5]) rotate([90, 0, 0]) cylinder(d=11.5, h=20);
+        translate([20, -baseLength+15, 5]) rotate([90, 0, 0]) cylinder(d=11.5, h=20);
         translate([20, -baseLength+15, -3]) rotate([90, 0, 0]) cylinder(d=11.5, h=20);
     }
 }
 
-*for(i=[-1, 1]) for(j=[-1,1])
+for(i=[-1, 1]) for(j=[-1,1])
     translate([i*(baseWidth+10), j*20, 0]) rotate(90)
 grip();
 
@@ -157,8 +153,8 @@ module grip()
             
             intersection()
             {
-                translate([gripLength/2-2.8, -8/2, 0]) cube([2.8, 8, 4]);
-                translate([gripLength/2-5, -8/2, 0.75]) rotate([0, 30, 0]) cube([13, 8, 4]);
+                translate([gripLength/2-2.8, -8/2, 0]) cube([2.8, 8, 5]);
+                translate([gripLength/2-5, -8/2, 1.75]) rotate([0, 30, 0]) cube([13, 8, 4]);
             }
         }
         //holes and nuts
