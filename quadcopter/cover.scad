@@ -64,15 +64,24 @@ difference()
                 }
 
                 //from Obijuan's cabinets 
-                for(j=[1:3]) for(i=[-2:2-((j+1)%2)])
+                *for(j=[1:3]) for(i=[-2:2-((j+1)%2)])
                 {
                     translate([i*15+(15/2)*((j+1)%2), -(openningWidth+20)/2, 10*j]) rotate([-90, 0, 0])
                         cylinder(d=10, h=(openningWidth+20), $fn=4);
                 }
-                for(j=[2:3]) for(i=[-2:2-((j+1)%2)])
+                *for(j=[2:3]) for(i=[-2:2-((j+1)%2)])
                 {
                     translate([-(openningLength+20)/2, i*17+(17/2)*((j+1)%2), 10*j-4]) rotate([0, 90, 0])
                         cylinder(d=10, h=(openningLength+20), $fn=4);
+                }
+                
+                //opennings
+                hull()
+                {
+                    translate([-(openningLength-10)/2, -(openningWidth+10)/2, -1])
+                        cube([openningLength-10, openningWidth+10, 1]);
+                    translate([-(openningLength-35)/2, -(openningWidth+10)/2, baseWidth*perc-10])
+                        cube([openningLength-35, openningWidth+10, 1]);
                 }
             }
             ellipsoid(w = baseWidth, h=baseLength);
