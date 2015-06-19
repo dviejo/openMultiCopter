@@ -41,7 +41,7 @@ difference()
                 scale([1,1,2.5])ellipsoid(w=batWidth/2+18, h=batLength/2+38);
             }
             //clearance for battery connection
-            translate([-batWidth, -batLength/2, 0]) cube([20, batLength/2+20, 20]);
+            translate([-batWidth+5, -batLength/2+1, 0]) cube([20, batLength/2+20, 20]);
         }
         
         for(i=[1,-1]) for(j=[1,-1])
@@ -82,11 +82,11 @@ difference()
         translate([-(batWidth-4)/2, -batLength/2, -1]) cube([batWidth-4,2,4+2]);
     }
     //clearance for battery connection
+    translate([-batWidth+5-1, -batLength/2+3, 4]) cube([20, batLength/2+20-6, 20-6]);
     hull()
     {
-        translate([-batWidth-1, -batLength/2+3, 4]) cube([20, batLength/2+20-6, 20-6]);
-        translate([0, -baseLength*0.75, 4]) cylinder(d=20, h=20-6);
-        translate([0, baseLength*0.95, 4]) cylinder(d=20, h=20-6);
+        translate([-batWidth+5+5, -batLength/2+3, 4]) cube([20-5, batLength/2+20-6, 20-6]);
+        translate([0, -baseLength*0.75, 4]) cylinder(d=20, h=batHeight-5);
     }
 
     //pixhawk safety button
