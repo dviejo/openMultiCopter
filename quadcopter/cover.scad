@@ -177,8 +177,8 @@ difference()
     
 }
 
-for(i=[-1, 1]) //for(j=[-1,1])
-    translate([i*(baseWidth+10), j*20, 0]) rotate(90)
+for(i=[-1, 1]) 
+    translate([i*(baseWidth+10), 0, 0]) rotate(90)
 grip();
 
 

@@ -131,11 +131,15 @@ difference()
         translate([-37/2, -37/2, -1]) cube([37,37, 5]);
     }
     
-    
+    //conections for top cover
+    lAux = baseLength*0.985;
+    wAux = (sqrt(1-(lAux/baseLength)*(lAux/baseLength)))*baseWidth;
+    #translate([wAux-5,lAux-5,-1]) cylinder(d=6.5, h=baseHeight-3+1);
+    #translate([wAux-5,lAux-5,baseHeight-3+0.3]) cylinder(d=3.15, h=baseHeight-3+1);
     
 
     //Uncomment next line to get the lower half
-    //translate([-300, -300, baseHeight/2]) cube([600,600,100]);
+    translate([-300, -300, baseHeight/2]) cube([600,600,100]);
     //Uncomment next line to get the upper half
     //translate([-300, -300, -1]) cube([600,600,baseHeight/2+1]);
 }
