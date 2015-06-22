@@ -14,8 +14,8 @@ use<armMount.scad>
 
 //laze();
 
-mirror([1,0,0]) //uncomment this line to get Counter Clock Wise arm !!
-copterArm(part=2);
+//mirror([1,0,0]) //uncomment this line to get Clock Wise arm !!
+copterArm(part=1); 
 
 
 ESCStart = 32; //distance from the beginning of the arm
@@ -40,6 +40,9 @@ difference()
 {
 union()
 {
+    //support
+    translate([-0.5, -10, -40/2]) cube([1,40,40]); 
+    
     malePart();
 
     translate([0, length, 0]) rotate(-90) motorMount(action="add");
@@ -133,11 +136,11 @@ union()
     rotate([-90,0,0]) 
     {
         translate([0, 0, outputDepth]) rotate([0, 90, 0]) translate([0,0,-15/2])
-            cylinder(d=2.05, h=15, $fn=20);
+            cylinder(d=1.95, h=15, $fn=10);
         translate([0, 0, length-59]) rotate([0, 90, 0]) translate([0,0,-15/2]) 
-            cylinder(d=2.05, h=15, $fn=20);
+            cylinder(d=1.95, h=15, $fn=10);
         translate([0, 0, length-40]) rotate([0, 90, 0]) translate([0,0,-15/2]) 
-            cylinder(d=2.05, h=15, $fn=20);
+            cylinder(d=1.95, h=15, $fn=10);
     }
     
     //bolt for the landing gear union
@@ -148,9 +151,9 @@ union()
     }    
     
     if(part==1)
-        translate([0, -1, -90]) cube([100, length+40, 180]);
+        translate([0, -11, -90]) cube([100, length+50, 180]);
     else if(part==2)
-        mirror([1,0,0]) translate([0, -1, -90]) cube([100, length+40, 180]);
+        mirror([1,0,0]) translate([0, -11, -90]) cube([100, length+50, 180]);
 } //end difference
 
 
