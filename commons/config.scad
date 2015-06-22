@@ -49,9 +49,10 @@ module nestedHull()
 }
 
 //hexer module
-hexagon_d = 10;
-hexagon_x = 9;
-hexagon_y = 5;
+scale = 1.15;
+hexagon_d = 10*scale;
+hexagon_x = 9*scale;
+hexagon_y = 5*scale;
 hexagon_h = 50; // centered
 
 min_x = - 150;

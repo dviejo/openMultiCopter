@@ -40,13 +40,18 @@ difference()
                 {
                     translate([i*(baseWidth*0.535), j*baseLength*0.7, 0]) unionBeam(action="add", height=7);
                 }
+                
+                //ends
+                translate([-60/2, baseLength*0.89, -1]) cube([60, 20, baseHeight+2]);
+                translate([-60/2, -baseLength*0.89-20, -1]) cube([60, 20, baseHeight+2]);
             }
         }
+        
+        //arms positive
         for(i=[45, -45])
         {
             intersection()
             {
-//                translate([0, 10, 0]) 
                 rotate(i) translate([0,baseWidth+armRectification,0])
                 {
                     difference()
@@ -64,7 +69,6 @@ difference()
         {
             intersection()
             {
-//                translate([0, -10, 0]) 
                 rotate(i) translate([0,baseWidth+armRectification,0])
                 {
                     difference()
@@ -79,22 +83,26 @@ difference()
             }
         }
         
-        mainElectronics(action="add");
+        translate([0, baseLength*0.225, 0]) mainElectronics(action="add");
         
-        translate([0, 0, baseHeight-4]) 
+        translate([0, 0, baseHeight-5]) 
             hollowify() difference()
             {
-                oval(w=baseWidth-wallThick, h=baseLength-wallThick, height=4);
-                translate([-openningLength/2, -openningWidth/2, -1]) cube([openningLength, openningWidth, 6]);
+                oval(w=baseWidth-wallThick, h=baseLength-wallThick, height=5);
+                
+                translate([-openningLength/2, -openningWidth/2+baseLength*0.225, -1])
+                    cube([openningLength, openningWidth, 5+2]);
+                translate([-openningLength/2, -openningWidth/2+baseLength*0.225-15, -1])
+                    cube([openningLength, 10, 5+2]);
+                translate([-openningLength/2, -baseLength*0.6, -1])
+                    cube([openningLength, 5, 5+2]);
             }
     }
 
-    
-//    translate([0, 10, 0])
+    //arms negative
     for(i=[45, -45])
         rotate(i) translate([0,baseWidth+armRectification,baseHeight/2])
             femalePart();
-//    translate([0, -10, 0])
     for(i=[135, -135])
         rotate(i) translate([0,baseWidth+armRectification,baseHeight/2])
             femalePart();
@@ -107,11 +115,12 @@ difference()
         translate([i*(baseWidth-wallThick), 0, 0]) unionBeam(action="nut");
         translate([0, i*(baseLength-wallThick), 0]) unionBeam(action="nut");
     }
-    mainElectronics(action="remove");
+    
+    translate([0, baseLength*0.225, 0]) mainElectronics(action="remove");
     
     //base holes for comunicating with the battery container
     for(i=[1, -1])
-        translate([0, i*baseLength*0.75, -1]) cylinder(d=20, h=4+2);
+        translate([0, i*baseLength*0.7, -1]) rotate(90) oval(w=12, h=15, height=4+2); //cylinder(d=20, h=4+2);
     
     //battery container's attaching holes
     for(i=[1,-1]) for(j=[1,-1])
@@ -123,7 +132,7 @@ difference()
     }
     
     //electric conections board
-    rotate(45) 
+    translate([0, baseLength*0.225, 0]) rotate(45) 
     {   
         translate([-50.5/2, -50.5/2, 1])  cube([50.5,50.5,6]);
         for(i=[-1,1]) for(j=[-1,1])
@@ -132,14 +141,17 @@ difference()
     }
     
     //conections for top cover
-    lAux = baseLength*0.985;
+    lAux = baseLength*0.98;
     wAux = (sqrt(1-(lAux/baseLength)*(lAux/baseLength)))*baseWidth;
-    #translate([wAux-5,lAux-5,-1]) cylinder(d=6.5, h=baseHeight-3+1);
-    #translate([wAux-5,lAux-5,baseHeight-3+0.3]) cylinder(d=3.15, h=baseHeight-3+1);
+    for(i=[1,-1])
+    {
+        translate([i*(wAux-5),i*(lAux-5),-1]) cylinder(d=6.5, h=baseHeight-3+1);
+        translate([i*(wAux-5),i*(lAux-5),baseHeight-3+0.3]) cylinder(d=3.15, h=baseHeight-3+1);
+    }
     
 
     //Uncomment next line to get the lower half
-    translate([-300, -300, baseHeight/2]) cube([600,600,100]);
+    //translate([-300, -300, baseHeight/2]) cube([600,600,100]);
     //Uncomment next line to get the upper half
     //translate([-300, -300, -1]) cube([600,600,baseHeight/2+1]);
 }

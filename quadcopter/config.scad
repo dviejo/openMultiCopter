@@ -21,7 +21,7 @@ wallThick = 6;
 
 baseLength = 108;
 
-baseWidth = elecLength/2+18*2;
+baseWidth = 72;
 
 baseHeight = 25;
 
