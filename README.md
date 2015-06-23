@@ -19,11 +19,11 @@ For some parts of this project I'm using the nice writing routines from Harlan M
 ## Current Status: Design and Test
 
 * Copter arm is finished. (Already printed and tested)
-* Quadcopter body design is finished (Already printed and tested, although a new design is being cook)
+* Quadcopter body design is finished (beta testing a new design)
 * Quadcopter body cover is being designed
-* Quadcopter battery compartment is almost finished (printing beta units)
+* Quadcopter battery compartment is finished (Already printed and tested)
 
-** First Flight Performed!!!! **
+** First Flight Performed!!!! ** (Video coming soon)
 
 ## Pictures
 
@@ -32,3 +32,5 @@ For some parts of this project I'm using the nice writing routines from Harlan M
 ![main frame mounted](Images/IMG_20150619_130345.jpg "main frame and arms")
 
 ![complete copter V1](Images/IMG_20150619_134711.jpg "main frame and arms")
+
+More pictures can be found in [github repository](https://github.com/dviejo/openMultiCopter/tree/master/Images "github repository")
