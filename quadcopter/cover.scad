@@ -42,8 +42,8 @@ difference()
                 }
                 mirror([0,1,0]) hull()
                 {
-                    translate([-3/2, baseLength+5-25, baseWidth*0.1]) cube([3, 15, 1]);
-                    translate([-3/2, baseLength-50, (baseWidth-3)*perc]) cube([3, 25, 1]);
+                    translate([-4/2, baseLength+5-25, baseWidth*0.1]) cube([4, 15, 1]);
+                    translate([-4/2, baseLength-50, (baseWidth-3)*perc]) cube([4, 25, 1]);
                 }
                 
                 //receiver antenna
