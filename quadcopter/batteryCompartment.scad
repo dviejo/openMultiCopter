@@ -78,16 +78,16 @@ difference()
     
     hull()
     {
-        translate([0, -baseLength*0.775, -1]) cylinder(d=20, h=4+2);
+        translate([0, -baseLength*0.775, -1]) rotate(90) oval(w=12, h=15, height=4+2);
         translate([-(batWidth-4)/2, -batLength/2, -1]) cube([batWidth-4,2,4+2]);
     }
     //clearance for battery connection
-    translate([-batWidth+5-1, -batLength/2+3, 4]) cube([20, batLength-6, 30-6]);
+    translate([-batWidth+5-1, -batLength/2+3, 4]) cube([20, batLength-6, 25-6]);
     hull()
     {
-        translate([-batWidth+5+5, -batLength/2+3, 4]) cube([20-5, batLength-6, 30-6]);
-        translate([0, -baseLength*0.775, 4]) cylinder(d=20, h=batHeight-5);
-        translate([-7, baseLength*0.95, 4]) cylinder(d=20, h=batHeight-5);
+        translate([-batWidth+5+5, -batLength/2+3, 4]) cube([20-5, batLength-6, 25-6]);
+        translate([0, -baseLength*0.775, 4]) rotate(90) oval(w=12, h=15, height=batHeight-3);
+        translate([-7, baseLength*0.75, 4]) cylinder(d=20, h=batHeight-5);
     }
 
     //pixhawk safety button
@@ -95,5 +95,5 @@ difference()
     translate([-1, -batLength, -1]) cube([2,batLength,4+11/2+2]);
 }
 
-%translate([0, 0, 0]) rotate([180,0,0])
+*%translate([0, 0, 0]) rotate([180,0,0])
 import("../output/mainPlatformPart1.stl");
