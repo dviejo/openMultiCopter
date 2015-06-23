@@ -16,12 +16,14 @@ My idea is to make this project fully parameterizable: the number of arms, size 
 
 For some parts of this project I'm using the nice writing routines from Harlan Martin. The complete package can be downloaded from [his repository on github](https://github.com/rohieb/Write.scad "writescad").
 
-## Current Status: Design and Test Phase
+## Current Status: Design and Test
 
 * Copter arm is finished. (Already printed and tested)
 * Quadcopter body design is finished (Already printed and tested, although a new design is being cook)
 * Quadcopter body cover is being designed
 * Quadcopter battery compartment is almost finished (printing beta units)
+
+** First Flight Performed!!!! **
 
 ## Pictures
 
