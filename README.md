@@ -33,4 +33,4 @@ For some parts of this project I'm using the nice writing routines from Harlan M
 
 ![complete copter V1](Images/IMG_20150619_134711.jpg "main frame and arms")
 
-More pictures can be found in [github repository](https://github.com/dviejo/openMultiCopter/tree/master/Images "github repository")
+More pictures can be found at [github repository](https://github.com/dviejo/openMultiCopter/tree/master/Images "github repository")
