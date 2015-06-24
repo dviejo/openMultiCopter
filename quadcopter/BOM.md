@@ -30,3 +30,7 @@
 
  - You can print it out from [Thingiverse](http://www.thingiverse.com/thing:160655 "Thingiverse") and just buy [silicone dampers](https://rc-innovations.es/silicone-dampers.-4-units-siliconeballblue-rci-innovations-en "Silicone dampers").
  
+7. Nuts and bolts
+
+ - 18 M3 nuts. Nylon lock if possible.
+ - 12 M3x20 bolts
