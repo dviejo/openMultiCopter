@@ -113,7 +113,7 @@ difference()
     }
 
     //Receiver antenna
-    translate([0, -baseLength+4,-1]) cylinder(d=6.5, h=20+2);
+    translate([0, -baseLength+4,-1]) cylinder(d=6.25, h=20+2);
     translate([-2.5/2, -baseLength+4,-1]) cube([2.5, 30, 3]);
     translate([-2/2, -baseLength-5,-1]) cube([2, 10, 10]);
     
