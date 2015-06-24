@@ -52,8 +52,8 @@ difference()
                 //ends
                 translate([-60/2, baseLength*0.89, -1]) cube([60, 20, 4]);
                 translate([-60/2, -baseLength*0.89-20, -1]) cube([60, 20, 4]);
-                translate([(baseWidth-6)*0.9, -120/2, -1]) cube([20,120,4]);
-                mirror([1,0,0]) translate([(baseWidth-6)*0.9, -120/2, -1]) cube([20,120,4]);
+                translate([(baseWidth-6)*0.925, -120/2, -1]) cube([20,120,4]);
+                mirror([1,0,0]) translate([(baseWidth-6)*0.925, -120/2, -1]) cube([20,120,4]);
                 
                 //support cylinders (remove after printing)
                 cylinder(d=10, h=baseWidth*0.3+1);
@@ -129,5 +129,5 @@ difference()
 
 
 *%translate([0, 0, -baseHeight])
-import("../output/mainPlatformPart2.stl");
+import("output/mainPlatformPart2.stl");
 
