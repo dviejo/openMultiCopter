@@ -59,7 +59,7 @@ module armMount(action, extraHole=0)
         {
             translate([13*i, -8.7, 12.5125]) rotate([-90, 0, 0]) cylinder(d=3.55, h = 18.4);
             translate([13*i, 30, 12.5125]) rotate([90, 0, 0]) cylinder(d=6.55, h = 20);
-            translate([13*i, -29, 12.5125]) rotate([-90, 0, 0]) cylinder(d=6.5, h = 20, $fn=6);
+            translate([13*i, -29, 12.5125]) rotate([-90, 0, 0]) cylinder(d=6.4, h = 20, $fn=6);
         }
     }
 }

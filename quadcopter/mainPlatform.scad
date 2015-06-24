@@ -199,6 +199,6 @@ module unionBeam(action="add", height=baseHeight)
     }
     else //nut at height-3
     {
-        translate([0, 0, height-3]) cylinder(r=3.25, h=height+2, $fn=6);
+        translate([0, 0, height-3]) cylinder(r=3.15, h=height+2, $fn=6);
     }
 }
