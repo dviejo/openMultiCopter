@@ -19,11 +19,16 @@ For some parts of this project I'm using the nice writing routines from Harlan M
 ## Current Status: Design and Test
 
 * Copter arm is finished. (Already printed and tested)
-* Quadcopter body design is finished (beta testing a new design)
-* Quadcopter body cover is being designed
+* Quadcopter body is finished (Already printed and tested)
+* Quadcopter body cover is finished (Already printed and tested)
 * Quadcopter battery compartment is finished (Already printed and tested)
 
-** First Flight Performed!!!! ** (Video coming soon)
+** First Flight Performed!!!! ** 
+
+[https://youtu.be/LpXG32mkR34](https://youtu.be/LpXG32mkR34)
+[https://youtu.be/p5fSE5LHzbQ](https://youtu.be/p5fSE5LHzbQ)
+[https://youtu.be/718BIuiu2yI](https://youtu.be/718BIuiu2yI)
+[https://youtu.be/-O9PJhnjDc4](https://youtu.be/-O9PJhnjDc4)
 
 ## Pictures
 
