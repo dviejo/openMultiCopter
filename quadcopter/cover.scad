@@ -50,10 +50,13 @@ difference()
                 translate([0, -baseLength+4,-1]) cylinder(d=9, h=20);
                 
                 //ends
-                translate([-60/2, baseLength*0.89, -1]) cube([60, 20, 4]);
+                translate([-60/2, baseLength*0.89, -1]) cube([60, 20, 4]); 
                 translate([-60/2, -baseLength*0.89-20, -1]) cube([60, 20, 4]);
                 translate([(baseWidth-6)*0.925, -120/2, -1]) cube([20,120,4]);
                 mirror([1,0,0]) translate([(baseWidth-6)*0.925, -120/2, -1]) cube([20,120,4]);
+
+                translate([-16.5/2+((sqrt(1-(0.98*0.98)))*baseWidth)-5, baseLength*0.89, -1]) cube([13, 20, 8]); 
+                translate([-9.5/2-((sqrt(1-(0.98*0.98)))*baseWidth)+5, -baseLength*0.89-20, -1]) cube([13, 20, 8]); 
                 
                 //support cylinders (remove after printing)
                 cylinder(d=10, h=baseWidth*0.3+1);
@@ -120,10 +123,14 @@ difference()
     //conections for top cover
     lAux = baseLength*0.98;
     wAux = (sqrt(1-(lAux/baseLength)*(lAux/baseLength)))*baseWidth;
-    #for(i=[1,-1])
+    for(i=[1,-1])
     {
-        translate([i*(wAux-5),i*(lAux-5),2]) cylinder(d=6.5, h=5, $fn=6);
-        translate([i*(wAux-5),i*(lAux-5),-1]) cylinder(d=3.15, h=7);
+        translate([i*(wAux-5),i*(lAux-5),2]) hull()
+        {
+            rotate(90) cylinder(d=6.5, h=3, $fn=6);
+            translate([0, -i*10, 0]) rotate(90) cylinder(d=6.5, h=3, $fn=6);
+        }
+        translate([i*(wAux-5),i*(lAux-5),-1]) cylinder(d=3.15, h=10);
     }
 }
 
