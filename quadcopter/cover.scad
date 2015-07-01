@@ -111,14 +111,14 @@ difference()
     //Antenna openning
     hull()
     {
-        translate([20, -baseLength+15, 5]) rotate([90, 0, 0]) cylinder(d=11.5, h=20);
-        translate([20, -baseLength+15, -3]) rotate([90, 0, 0]) cylinder(d=11.5, h=20);
+        translate([20, -baseLength+15, 5]) rotate([90, 0, 0]) cylinder(d=11, h=20);
+        translate([20, -baseLength+15, -3]) rotate([90, 0, 0]) cylinder(d=11, h=20);
     }
 
     //Receiver antenna
-    translate([0, -baseLength+4,-1]) cylinder(d=6.25, h=20+2);
+    translate([0, -baseLength+4,-1]) cylinder(d=5.25, h=20+2);
     translate([-2.5/2, -baseLength+4,-1]) cube([2.5, 30, 3]);
-    translate([-2/2, -baseLength-5,-1]) cube([2, 10, 10]);
+    translate([-2/2, -baseLength-5,-1]) cube([2, 10, 13]);
     
     //conections for top cover
     lAux = baseLength*0.98;
