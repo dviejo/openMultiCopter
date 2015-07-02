@@ -30,7 +30,7 @@ difference()
             {
                 intersection()
                 {
-                    ellipsoid(w = baseWidth-2, h=baseLength-1);
+                    translate([0,0,-1]) ellipsoid(w = baseWidth-2, h=baseLength-1);
                     translate([-200, -200, -1]) cube([400, 400, 1+(baseWidth-3)*perc]);
                 }
                 translate([-3/2, baseLength+5-25, -1]) cube([3, 5+15, 35]);
@@ -59,10 +59,10 @@ difference()
                 translate([-9.5/2-((sqrt(1-(0.98*0.98)))*baseWidth)+5, -baseLength*0.89-20, -1]) cube([13, 20, 8]); 
                 
                 //support cylinders (remove after printing)
-                cylinder(d=10, h=baseWidth*0.3+1);
+                cylinder(d=15, h=baseWidth*0.3+1);
                 cylinder(d1=20, d2=10, h=5);
                 translate([0, 0, baseWidth*0.3]) 
-                    cylinder(d1=10, d2=40, h=(baseWidth-3)*perc-baseWidth*0.3 - 0.33);
+                    cylinder(d1=15, d2=44, h=(baseWidth-3)*perc-baseWidth*0.3 - 0.33);
                 
                 
             }
