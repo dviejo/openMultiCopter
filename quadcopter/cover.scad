@@ -117,6 +117,7 @@ difference()
 
     //Receiver antenna
     translate([0, -baseLength+4,-1]) cylinder(d=5.25, h=20+2);
+    #translate([0, -baseLength+4, 8]) cylinder(d=6.0, h=20+2);
     translate([-2.5/2, -baseLength+4,-1]) cube([2.5, 30, 3]);
     translate([-2/2, -baseLength-5,-1]) cube([2, 10, 13]);
     
@@ -127,7 +128,7 @@ difference()
     {
         translate([i*(wAux-5),i*(lAux-5),2]) hull()
         {
-            rotate(90) cylinder(d=6.5, h=3, $fn=6);
+            translate([0, i*0.2, 0])rotate(90) cylinder(d=6.5, h=3, $fn=6);
             translate([0, -i*10, 0]) rotate(90) cylinder(d=6.5, h=3, $fn=6);
         }
         translate([i*(wAux-5),i*(lAux-5),-1]) cylinder(d=3.15, h=10);
