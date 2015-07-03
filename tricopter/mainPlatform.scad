@@ -9,6 +9,7 @@ include<config.scad>
 include<../commons/config.scad>
 
 use<../commons/armMount.scad>
+use<../commons/copterArm.scad>
 
 lArm = baseLength*0.7;
 wArm = (sqrt(1-(lArm/baseLength)*(lArm/baseLength)))*baseWidth;
@@ -29,21 +30,27 @@ difference()
                 //unions
                 for(i=[1,-1])
                 {
+                    translate([i*((sqrt(1-0.75*0.75))*baseWidth-wallThick), -(baseLength*0.75-wallThick), 0]) unionBeam(action="add");
                     translate([i*(baseWidth-wallThick), 0, 0]) unionBeam(action="add");
-                    translate([0, i*(baseLength-wallThick), 0]) unionBeam(action="add");
                 }
+                translate([0, (baseLength-wallThick), 0]) unionBeam(action="add");
+                
                 //battery container attaching holes
-                for(i=[1,-1]) for(j=[1,-1])
+                for(i=[1,-1]) 
                 {
-                    translate([i*(baseWidth*0.535), j*baseLength*0.7, 0]) unionBeam(action="add", height=7);
+                    translate([i*((sqrt(1-0.825*0.825))*baseWidth-1.5*wallThick), 
+                              -(baseLength*0.825-wallThick), 0]) 
+                        unionBeam(action="add", height=7);
+                    translate([i*((sqrt(1-0.875*0.875))*baseWidth-1.5*wallThick), (baseLength*0.875-wallThick), 0]) 
+                        unionBeam(action="add", height=7);
                 }
                 
-                //ends
+                //end
                 translate([-60/2, baseLength*0.89, -1]) cube([60, 20, baseHeight+2]);
-                translate([-60/2, -baseLength*0.89-20, -1]) cube([60, 20, baseHeight+2]);
             }
         }
         
+        //front arms
         for(i=[1, -1])
         {
             intersection()
@@ -61,6 +68,7 @@ difference()
                 oval(w=baseWidth, h=baseLength, height=baseHeight);
             }
         }
+        //rear arm 
         intersection()
         {
             translate([0,-baseLength+armRectification*1.5,0]) rotate(180)
@@ -75,7 +83,23 @@ difference()
             }
             oval(w=baseWidth, h=baseLength, height=baseHeight);
         }
-    }
+        
+        translate([0, -baseLength*0.125, 0]) mainElectronics(action="add");
+        
+        translate([0, 0, baseHeight-5]) 
+            hollowify() difference()
+            {
+                oval(w=baseWidth-wallThick, h=baseLength-wallThick, height=5);
+                
+                translate([-openningLength/2, -openningWidth/2+baseLength*0.225, -1])
+                    cube([openningLength, openningWidth, 5+2]);
+                translate([-openningLength/2, -openningWidth/2+baseLength*0.225-15, -1])
+                    cube([openningLength, 10, 5+2]);
+                translate([-openningLength/2, -baseLength*0.6, -1])
+                    cube([openningLength, 5, 5+2]);
+            }
+
+    } //union end
     
     //arms negative
     for(i=[1, -1])
@@ -85,6 +109,54 @@ difference()
     }
     translate([0,-baseLength+armRectification*1.5,baseHeight/2]) rotate(180)
         femalePart();
+
+    //unions
+    for(i=[1,-1])
+    {
+        translate([i*((sqrt(1-0.75*0.75))*baseWidth-wallThick), -(baseLength*0.75-wallThick), 0]) unionBeam(action="boltHead");
+        translate([i*((sqrt(1-0.75*0.75))*baseWidth-wallThick), -(baseLength*0.75-wallThick), 0]) unionBeam(action="nut");
+        
+        translate([i*(baseWidth-wallThick), 0, 0]) unionBeam(action="boltHead");
+        translate([i*(baseWidth-wallThick), 0, 0]) unionBeam(action="nut");
+    }
+    translate([0, (baseLength-wallThick), 0]) unionBeam(action="boltHead");
+    translate([0, (baseLength-wallThick), 0]) unionBeam(action="nut");
+
+    translate([0, -baseLength*0.125, 0]) mainElectronics(action="remove");
+
+    //base holes for comunicating with the battery container
+    translate([0, baseLength*0.75, -1]) rotate(90) oval(w=12, h=15, height=4+2); 
+    
+    //electric conections board
+    translate([0, -baseLength*0.125, 0]) rotate(45) 
+    {   
+        translate([-50.5/2, -50.5/2, 1])  cube([50.5,50.5,6]);
+        for(i=[-1,1]) for(j=[-1,1])
+            translate([i*45/2, j*45/2, -1]) cylinder(r=1.65, h=4+2);
+        translate([-37/2, -37/2, -1]) cube([37,37, 5]);
+    }
+
+}
+
+    %for(i=[1, -1])
+    {
+        translate([i*(wArm-armRectification),lArm-armRectification,baseHeight/2]) rotate(-i*frontAngle)
+            import("../stl/copterArm.stl");
+    }
+    %translate([0,-baseLength+armRectification*1.5,baseHeight/2]) rotate(180)
+        import("../stl/copterArm.stl");
+
+        
+module mainElectronics(action = "add")
+{
+    for(i=[-1,1])
+    {
+        for(j=[-1,1])
+        {
+            translate([i*monimacHolesHeight/2, j*monimacHolesWidth/2,0]) 
+                unionBeam(action=action, height=12);
+        }
+    }
 }
 
 module unionBeam(action="add", height=baseHeight)
