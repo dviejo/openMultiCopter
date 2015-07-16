@@ -14,7 +14,7 @@ use<../commons/copterArm.scad>
 lArm = baseLength*0.7;
 wArm = (sqrt(1-(lArm/baseLength)*(lArm/baseLength)))*baseWidth;
 
-armRectification = 23;
+armRectification = 19;
 
 difference()
 {
@@ -134,14 +134,33 @@ difference()
         translate([-37/2, -37/2, -1]) cube([37,37, 5]);
     }
 
+    //battery container's attaching holes
+    for(i=[1,-1])
+    {
+                    translate([i*((sqrt(1-0.825*0.825))*baseWidth-1.5*wallThick), 
+                              -(baseLength*0.825-wallThick), 0]) 
+                        unionBeam(action="remove", height=7);
+                    translate([i*((sqrt(1-0.825*0.825))*baseWidth-1.5*wallThick), 
+                              -(baseLength*0.825-wallThick), 0]) 
+                        unionBeam(action="nut", height=6.5);
+                    translate([i*((sqrt(1-0.875*0.875))*baseWidth-1.5*wallThick), (baseLength*0.875-wallThick), 0]) 
+                        unionBeam(action="remove", height=7);
+                    translate([i*((sqrt(1-0.875*0.875))*baseWidth-1.5*wallThick), (baseLength*0.875-wallThick), 0]) 
+                        unionBeam(action="nut", height=6.5);
+    }
+
+    //Uncomment next line to get the lower half
+    //translate([-300, -300, baseHeight/2]) cube([600,600,100]);
+    //Uncomment next line to get the upper half
+    //translate([-300, -300, -1]) cube([600,600,baseHeight/2+1]);
 }
 
-    %for(i=[1, -1])
+    *%for(i=[1, -1])
     {
         translate([i*(wArm-armRectification),lArm-armRectification,baseHeight/2]) rotate(-i*frontAngle)
             import("../stl/copterArm.stl");
     }
-    %translate([0,-baseLength+armRectification*1.5,baseHeight/2]) rotate(180)
+    *%translate([0,-baseLength+armRectification*1.5,baseHeight/2]) rotate(180)
         import("../stl/copterArm.stl");
 
         

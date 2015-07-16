@@ -24,4 +24,4 @@ baseHeight = 25;
 
 //electronic's openning. Shared by mainPlatform and cover
 openningLength = 80;
-openningWidth = 94;
+openningWidth = 96;
