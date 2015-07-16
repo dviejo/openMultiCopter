@@ -91,12 +91,10 @@ difference()
             {
                 oval(w=baseWidth-wallThick, h=baseLength-wallThick, height=5);
                 
-                translate([-openningLength/2, -openningWidth/2+baseLength*0.225, -1])
+                translate([-openningLength/2, -openningWidth/2-baseLength*0.125, -1])
                     cube([openningLength, openningWidth, 5+2]);
-                translate([-openningLength/2, -openningWidth/2+baseLength*0.225-15, -1])
+                translate([-openningLength/2, openningWidth/2-baseLength*0.125+17, -1])
                     cube([openningLength, 10, 5+2]);
-                translate([-openningLength/2, -baseLength*0.6, -1])
-                    cube([openningLength, 5, 5+2]);
             }
 
     } //union end
