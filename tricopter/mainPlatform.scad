@@ -31,7 +31,7 @@ difference()
                 for(i=[1,-1])
                 {
                     translate([i*((sqrt(1-0.75*0.75))*baseWidth-wallThick), -(baseLength*0.75-wallThick), 0]) unionBeam(action="add");
-                    translate([i*(baseWidth-wallThick), 0, 0]) unionBeam(action="add");
+                    translate([i*((sqrt(1-0.325*0.325))*baseWidth-wallThick), (baseLength*0.325-wallThick), 0]) unionBeam(action="add");
                 }
                 translate([0, (baseLength-wallThick), 0]) unionBeam(action="add");
                 
@@ -84,17 +84,19 @@ difference()
             oval(w=baseWidth, h=baseLength, height=baseHeight);
         }
         
-        translate([0, -baseLength*0.125, 0]) mainElectronics(action="add");
+        translate([0, -baseLength*0.135, 0]) mainElectronics(action="add");
         
         translate([0, 0, baseHeight-5]) 
             hollowify() difference()
             {
                 oval(w=baseWidth-wallThick, h=baseLength-wallThick, height=5);
                 
-                translate([-openningLength/2, -openningWidth/2-baseLength*0.125, -1])
+                translate([-openningLength/2, -openningWidth/2-baseLength*0.135, -1])
                     cube([openningLength, openningWidth, 5+2]);
-                translate([-openningLength/2, openningWidth/2-baseLength*0.125+17, -1])
+                translate([-openningLength/2, openningWidth/2-baseLength*0.135+17, -1])
                     cube([openningLength, 10, 5+2]);
+                for(i=[1,-1]) 
+                    translate([i*(baseWidth-wallThick-4), 0, -1])cylinder(d=3.2, h=7);
             }
 
     } //union end
@@ -114,19 +116,19 @@ difference()
         translate([i*((sqrt(1-0.75*0.75))*baseWidth-wallThick), -(baseLength*0.75-wallThick), 0]) unionBeam(action="boltHead");
         translate([i*((sqrt(1-0.75*0.75))*baseWidth-wallThick), -(baseLength*0.75-wallThick), 0]) unionBeam(action="nut");
         
-        translate([i*(baseWidth-wallThick), 0, 0]) unionBeam(action="boltHead");
-        translate([i*(baseWidth-wallThick), 0, 0]) unionBeam(action="nut");
+        translate([i*((sqrt(1-0.325*0.325))*baseWidth-wallThick), (baseLength*0.325-wallThick), 0]) unionBeam(action="boltHead");
+        translate([i*((sqrt(1-0.325*0.325))*baseWidth-wallThick), (baseLength*0.325-wallThick), 0]) unionBeam(action="nut");
     }
     translate([0, (baseLength-wallThick), 0]) unionBeam(action="boltHead");
     translate([0, (baseLength-wallThick), 0]) unionBeam(action="nut");
 
-    translate([0, -baseLength*0.125, 0]) mainElectronics(action="remove");
+    translate([0, -baseLength*0.135, 0]) mainElectronics(action="remove");
 
     //base holes for comunicating with the battery container
     translate([0, baseLength*0.75, -1]) rotate(90) oval(w=12, h=15, height=4+2); 
     
     //electric conections board
-    translate([0, -baseLength*0.125, 0]) rotate(45) 
+    translate([0, -baseLength*0.135, 0]) rotate(45) 
     {   
         translate([-50.5/2, -50.5/2, 1])  cube([50.5,50.5,6]);
         for(i=[-1,1]) for(j=[-1,1])
@@ -147,6 +149,12 @@ difference()
                         unionBeam(action="remove", height=7);
                     translate([i*((sqrt(1-0.875*0.875))*baseWidth-1.5*wallThick), (baseLength*0.875-wallThick), 0]) 
                         unionBeam(action="nut", height=6.5);
+    }
+    
+    //conections for top cover
+    for(i=[1,-1]) 
+    {
+        translate([i*(baseWidth-wallThick-4), 0, -1]) cylinder(d=6.5, h=baseHeight-3+1);
     }
 
     //Uncomment next line to get the lower half
