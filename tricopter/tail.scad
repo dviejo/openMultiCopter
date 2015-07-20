@@ -14,14 +14,23 @@ use<../commons/armMount.scad>
 
 //laze();
 
-tailArm(part=1); 
-
+//tailArm(part=0, length = 165); 
+servo();
 
 ESCStart = 32; //distance from the beginning of the arm
 //Setup you ESC parameters here. Just check that the hole for it is big enough to hold it
 ESCLength = 90;
 ESCHeight = 10;
 ESCWidth = 27;
+
+//servo 
+servoLength = 37.75;
+servoWidth = 20;
+servoHeight = 40.15;
+servoHoleW = 10/2;
+servoHoleH = 49/2;
+servoPlateH = 54.5;
+servoPlateL = 26.5;
 
 
 /**
@@ -145,9 +154,9 @@ union()
     //bolt for the landing gear union
     rotate([-90,0,0]) 
     {
-        translate([-30/2, 75, 166.5]) rotate([0,90,0]) cylinder(r=1.65, h=25);
-        translate([-30/2, 75, 166.5]) rotate([0,90,0]) cylinder(r=3.25, h=10);
-    }    
+        translate([-30/2, 75, length-17.5]) rotate([0,90,0]) cylinder(r=1.65, h=25);
+        translate([-30/2, 75, length-17.5]) rotate([0,90,0]) cylinder(r=3.25, h=10);
+    }
     
     if(part==1)
         translate([0, -11, -90]) cube([100, length+50, 180]);
@@ -156,10 +165,36 @@ union()
 } //end difference
 
 
-*color("red")
-translate([0, 106.4, -36.3]) 
-    rotate([0, 90, 0]) rotate(-90) 
-        import("../stl/OpenRC_Quad_Alpha_Arm_Part_1.stl");
+module servo(part="piece")
+{
+    if(part=="piece")
+    {
+        difference()
+        {
+            union()
+            {
+                translate([-servoWidth/2, 0, -servoHeight/2]) cube([servoWidth, servoLength, servoHeight]);
+                translate([-servoWidth/2, servoPlateL, -servoPlateH/2]) cube([servoWidth, 2, servoPlateH]);
+            }
+        
+            for(i=[1,-1]) for(j=[1,-1])
+            {
+                translate([servoHoleW*i, 0, servoHoleH*j]) rotate([-90, 0, 0]) cylinder(d=5, h=servoLength);
+            }
+        }
+    }
+    else //part="hole"
+    union()
+    {
+        translate([-servoWidth/2, 0, -servoHeight/2]) cube([servoWidth, servoLength, servoHeight]);
+        translate([-servoWidth/2, servoPlateL, -servoPlateH/2]) cube([servoWidth, 2, servoPlateH]);
+        
+        for(i=[1,-1]) for(j=[1,-1])
+        {
+            translate([servoHoleW*i, 0, servoHoleH*j]) rotate([-90, 0, 0]) cylinder(d=2.65, h=servoLength);
+        }
+    }
+}
 
 
 sep = 31;
@@ -170,7 +205,7 @@ union() {
     rotate([0,90,35])
     for(x=[-40:1:20])
     {
-        hull()
+//        hull()
         {
             translate([x, x*x/27, 0]) scale([1.0, 1.0, 1.35]) sphere(r=8);
             translate([x+1, (x+1)*(x+1)/27, 0]) scale([1.0, 1.0, 1.35])sphere(r=8);
@@ -184,7 +219,7 @@ union() {
     rotate([0,90,35])
     for(x=[-40:1:20])
     {
-        hull()
+//        hull()
         {
             translate([x, x*x/27, 0]) scale([1.0, 1.0, 1.35]) sphere(r=8);
             translate([x+1, (x+1)*(x+1)/27, 0]) scale([1.0, 1.0, 1.35])sphere(r=8);
