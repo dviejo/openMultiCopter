@@ -14,6 +14,20 @@ wireDiameter = 8;
 //$fa= 1 ; 
 
 
+////////motorMount
+motorOuterDiam = 37;
+motorInnerDiam = 32;
+
+motorHeight = 26;
+
+motorPlatformHeight = 7;
+motorPlatformWidth = 3.75;
+
+motoraxleDiam = 4;
+bottomClearanceDiam = 8;
+bottomClearanceHeight = 2.5;
+
+
 ///////////// armMount
 entryWidth = 50.75/2;
 entryHeight = 18.25/2;
