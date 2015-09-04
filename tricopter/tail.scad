@@ -15,7 +15,7 @@ use<../commons/armMount.scad>
 //laze();
 
 //tailArm(part=0, length = 165); 
-servo();
+motorHolder();
 
 ESCStart = 32; //distance from the beginning of the arm
 //Setup you ESC parameters here. Just check that the hole for it is big enough to hold it
@@ -164,6 +164,28 @@ union()
         mirror([1,0,0]) translate([0, -11, -90]) cube([100, length+50, 180]);
 } //end difference
 
+
+module motorHolder()
+{
+    difference()
+    {
+        union()
+        {
+            difference()
+            {
+                union()
+                {
+                    motorMount(action="add");
+                    translate([motorOuterDiam/2-3, -30, -(motorPlatformHeight + motorPlatformWidth + wireDiameter/2)])
+                        cube([10, 60, 12]);
+                }
+                motorMount(action="remove");
+                
+                #translate([0, 0, -(motorPlatformHeight + motorPlatformWidth + wireDiameter/2) + 12/2]) rotate([0, 90, 0]) cylinder(d=3.15, h=30);
+            }
+        }
+    }
+}
 
 module servo(part="piece")
 {

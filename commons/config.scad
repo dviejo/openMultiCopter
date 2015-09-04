@@ -23,7 +23,7 @@ motorHeight = 26;
 motorPlatformHeight = 7;
 motorPlatformWidth = 3.75;
 
-motoraxleDiam = 4;
+motorAxleDiam = 4;
 bottomClearanceDiam = 8;
 bottomClearanceHeight = 2.5;
 

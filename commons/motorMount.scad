@@ -11,7 +11,6 @@
 include<config.scad>
 
 
-
 module motorMount(action="add") 
 translate([0, 0, -(motorPlatformHeight + motorPlatformWidth + wireDiameter/2)])
 {
@@ -31,7 +30,7 @@ translate([0, 0, -(motorPlatformHeight + motorPlatformWidth + wireDiameter/2)])
         translate([0, 0, motorPlatformHeight + motorPlatformWidth]) cylinder(d=motorInnerDiam, h=motorHeight);
         
         //Motor axle if exists
-        cylinder(d=axleDiam, h=motorHeight, $fn=20);
+        cylinder(d=motorAxleDiam, h=motorHeight, $fn=20);
         
         //Bottom clearance
         translate([0, 0, motorPlatformHeight+ motorPlatformWidth-bottomClearanceHeight]) 
