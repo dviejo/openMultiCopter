@@ -20,11 +20,14 @@ bat2_Width = 44;
 bat2_Length = 138;
 bat2_Height = 33;
 
+//Turnigy 5000mAh 3S 25C
+bat3_Width = 50;
+bat3_Length = 142;
+bat3_Height = 20;
 
-// batWidth = bat1_Width;
-// batLength = bat1_Length;
-// batHeight = bat1_Height;
 
+
+//Change next three lines to match your battery's specs. 
 batWidth = bat2_Width;
 batLength = bat2_Length;
 batHeight = bat2_Height;
@@ -41,6 +44,7 @@ difference()
                 scale([1,1,2.5])ellipsoid(w=batWidth/2+18, h=batLength/2+38);
             }
             //clearance for battery connection
+            //TODO This cube's height has to be related to battery's o,r at least, be ensured not to be taller
             translate([-batWidth+5, -batLength/2+1, 0]) cube([20, batLength, 30]);
         }
         
@@ -56,18 +60,20 @@ difference()
         intersection()
         {
             translate([0,-batLength/2-30-3,4+11/2]) rotate([-90, 0, 0]) cylinder(d2=27, d1=11.5,h=10);
-            translate([-100,-100,0]) cube([200,200,100]);
+            translate([-batWidth,-batLength,0]) cube([2*batWidth,2*batLength,100]);
         }
     }
     
     translate([-(batWidth+4)/2, -batLength/2, 4]) cube([batWidth+4, batLength+35, batHeight+1]);
     translate([-(batWidth-4)/2, -batLength/2, -1]) cube([batWidth-4, batLength+30, 12]);
-    translate([-(batWidth+4)/2, batLength/2-1, 4]) cube([batWidth+4, 30, batHeight+10]);
+    translate([-(batWidth+4)/2, batLength/2-1, 4]) cube([batWidth+4, 100, batHeight+10]);
     //battery container's attaching holes
     for(i=[1,-1]) for(j=[1,-1])
     {
         translate([i*(baseWidth*0.535), j*baseLength*0.7, -1]) 
             cylinder(r=1.7, h=10+1);
+        translate([i*(baseWidth*0.535), j*baseLength*0.7, 2.5]) 
+            cylinder(r=4, h=batHeight+15);
     }
 
     intersection()
